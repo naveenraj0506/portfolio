@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naveenraj R | Cyber Security Engineer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="matrix-canvas"></canvas>
+    <div class="custom-cursor"></div>
+
+    <!-- Add SVG filter for the profile mask -->
+    <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true">
+        <defs>
+            <filter id="matrix-effect">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="0.5" result="blur"/>
+                <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0.8  0 0 1 0 0  0 0 0 18 -7" result="matrix"/>
+                <feBlend in="SourceGraphic" in2="matrix" mode="screen"/>
+            </filter>
+        </defs>
+    </svg>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div>
+                <h4 style="color: var(--primary); margin-bottom: 1rem;">> root@naveenraj:~$ whoami</h4>
+                <h1>NAVEENRAJ_R</h1>
+                <h2 style="color: var(--text-secondary)">[CYBER_SECURITY_ENGINEER]</h2>
+                <div class="console-container">
+                    <div id="console-output">
+                        <p class="console-line">> Access granted. Type 'help' for available commands.</p>
+                    </div>
+                    <div class="console-input-line">
+                        <span class="prompt">> </span>
+                        <input type="text" id="console-input" autofocus spellcheck="false" autocomplete="off">
+                    </div>
+                </div>
+                <p>
+                    > Security Specialist specializing in penetration testing and ethical hacking.<br>
+                    > Expert in Web, Mobile and API security.<br>
+                    > Passionate about cybersecurity innovation and defense.
+                </p>
+            </div>
+            <!-- <div class="profile-container">
+                <img src="IMG_2338-removebg-preview.png" alt="Naveenraj R" class="profile-img active">
+                <img src="anonymous-removebg-preview.png" alt="Alternative Profile" class="profile-img">
+            </div> -->
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 style="color: var(--primary); margin-bottom: 2rem;">> TECHNICAL_SKILLS</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3 style="color: var(--text-secondary)">[SECURITY_PRACTICES]</h3>
+                <ul class="hacker-list">
+                    <li>DAST/SAST/OSL</li>
+                    <li>API Security</li>
+                    <li>Web App PenTesting</li>
+                    <li>DevSecOps Pipeline</li>
+                    <li>Azure WAF Configuration</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h3 style="color: var(--text-secondary)">[TOOLS_ARSENAL]</h3>
+                <ul class="hacker-list">
+                    <li>Python/Java</li>
+                    <li>BurpSuite/Nmap</li>
+                    <li>Metasploit/Nikto</li>
+                    <li>Fortify/Coverity</li>
+                    <li>Mend Whitesource</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 style="color: var(--primary); margin-bottom: 2rem;">> WORK_EXPERIENCE</h2>
+        <div class="timeline">
+            <div class="project-card">
+                <h3 style="color: var(--text-secondary)">[FRESHWORKS]</h3>
+                <h4>> Security Engineer (Sep 2024 - Present)</h4>
+                <p class="location">> Chennai, Tamil Nadu, India</p>
+                <ul class="hacker-list">
+                    <li>Spearheading source code security reviews and manual penetration testing initiatives to identify and remediate critical vulnerabilities</li>
+                    <li>Leading bug bounty program triage operations, effectively managing and validating security findings from external researchers</li>
+                    <li>Providing expert security consultation to clients, addressing complex application security concerns and implementing robust solutions</li>
+                    <li>Implementing shift-left security principles to integrate security practices early in the development lifecycle</li>
+                    <li>Fostering a strong security culture through mentorship and knowledge sharing within teams</li>
+                </ul>
+            </div>
+
+
+            <div class="project-card">
+                <h3 style="color: var(--text-secondary)">[TEMENOS]</h3>
+                <h4>> Associate Engineer - Product Security (Oct 2022 - Sep 2024)</h4>
+                <p class="location">> Chennai, Tamil Nadu, India</p>
+                <ul class="hacker-list">
+                    <li>Led Product's security testing lifecycle</li>
+                    <li>Automated exploit discovery using Python/NVD APIs & EOL component detection</li>
+                    <li> Enhanced cloud endpoint security in Azure</li>
+                    <li> Cloud VM patch management strategist</li>
+                    <li> Azure WAF configuration & validation expert</li>
+                    <li> Conducted manual pentests across web/mobile/thick clients</li>
+                    <li> Integrated security in SDLC pipeline</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 style="color: var(--primary); margin-bottom: 2rem;">> CERTIFICATIONS</h2>
+        <div class="cert-grid">
+            <div class="project-card">
+                <i class="fas fa-shield-alt" style="color: var(--primary); margin-right: 1rem;"></i>
+                <a href="https://www.credly.com/badges/da5b007d-2425-4e26-97d8-ea8e9f732f93" target="_blank" class="cert-title">> Certified DevSecOps Professional (CDP)</a>
+                <p class="cert-details">> Issued: Jan 2025</p>
+            </div>
+            <div class="project-card">
+                <i class="fas fa-lock" style="color: var(--primary); margin-right: 1rem;"></i>
+                <a href="https://drive.google.com/file/d/1mMWkp4IJ5_HVtYR2TxY9V2p7386MqZMw/view?usp=drivesdk" target="_blank" class="cert-title">> Certified Appsec Practitioner</a>
+                <p class="cert-details">> Issued: Feb 2023</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 style="color: var(--primary); margin-bottom: 2rem;">> CONTACT_DETAILS</h2>
+        <div class="contact-grid">
+            <div class="project-card">
+                <i class="fas fa-envelope" style="color: var(--primary); margin-right: 1rem;"></i>
+                <a href="mailto:naveenraj2001ravi@gmail.com" style="color: var(--text-primary); text-decoration: none;">naveenraj2001ravi@gmail.com</a>
+            </div>
+            <div class="project-card">
+                <i class="fas fa-map-marker-alt" style="color: var(--primary); margin-right: 1rem;"></i>
+                <span>Chennai, Tamil Nadu, India.</span>
+            </div>
+            <div class="project-card">
+                <i class="fab fa-linkedin" style="color: var(--primary); margin-right: 1rem;"></i>
+                <a href="https://www.linkedin.com/in/naveenraj-r-658658150/" target="_blank" style="color: var(--text-primary); text-decoration: none;">LinkedIn Profile</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,153 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naveenraj R | Cyber Security Engineer</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <title>Naveenraj R | Senior Security Engineer · AI Security</title>
+    <meta name="description"
+        content="Naveenraj R — Senior Security Engineer who builds AI-powered security: autonomous security agents, design-level controls and shift-left guardrails for SaaS and AI products.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Ccircle cx=%2232%22 cy=%2232%22 r=%2232%22 fill=%22%23262a40%22/%3E%3Ctext x=%2232%22 y=%2241%22 font-family=%22Arial%22 font-weight=%22700%22 font-size=%2224%22 fill=%22white%22 text-anchor=%22middle%22%3ENR%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=42">
 </head>
+
 <body>
-    <canvas id="matrix-canvas"></canvas>
-    <div class="custom-cursor"></div>
+    <div class="progress" id="progress"></div>
+    <!-- Navigation -->
+    <header class="topbar">
+        <a href="#hero" class="logo"><span class="logo-mark">NR</span><span class="logo-text">naveenraj.r</span></a>
+        <nav class="pill-nav" id="pillNav">
+            <a href="#about" data-sec="about">About</a>
+            <a href="#skills" data-sec="skills">Skills</a>
+            <a href="#work" data-sec="work">Work</a>
+            <a href="#experience" data-sec="experience">Experience</a>
+            <a href="#certifications" data-sec="certifications">Credentials</a>
+            <a href="#contact" data-sec="contact">Contact</a>
+        </nav>
+    </header>
 
-    <!-- Add SVG filter for the profile mask -->
-    <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true">
-        <defs>
-            <filter id="matrix-effect">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="0.5" result="blur"/>
-                <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0.8  0 0 1 0 0  0 0 0 18 -7" result="matrix"/>
-                <feBlend in="SourceGraphic" in2="matrix" mode="screen"/>
-            </filter>
-        </defs>
-    </svg>
+    <main>
+        <!-- Hero: talking intro -->
+        <section id="hero" class="hero">
+            <div class="hero-bgname" aria-hidden="true">NAVEEN</div>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div>
-                <h4 style="color: var(--primary); margin-bottom: 1rem;">> root@naveenraj:~$ whoami</h4>
-                <h1>NAVEENRAJ_R</h1>
-                <h2 style="color: var(--text-secondary)">[CYBER_SECURITY_ENGINEER]</h2>
-                <div class="console-container">
-                    <div id="console-output">
-                        <p class="console-line">> Access granted. Type 'help' for available commands.</p>
+            <div class="hero-avatar" id="heroAvatar">
+                <div class="voice-ring" aria-hidden="true"><i></i><i></i><i></i></div>
+                <!-- Talking intro: assets/intro.mp4 (Google Flow / Veo), background levelled to pure white -->
+                <div class="rig" id="rig"><div class="rig-breath">
+                    <video id="introVideo" class="intro-video" src="assets/intro.mp4" poster="assets/intro-poster.webp"
+                        playsinline muted preload="auto" aria-label="Naveenraj's AI avatar introducing himself"></video>
+                </div></div>
+            </div>
+
+            <!-- Outside the blended avatar layer so the bubble stays solid -->
+            <div class="speech" id="speech" aria-live="polite"></div>
+
+            <div class="hero-copy">
+                <p class="eyebrow">Digital portfolio · Chennai, India</p>
+                <h1 class="hero-title">Senior Security<br>Engineer<span class="dot">.</span></h1>
+                <p class="hero-sub">Equipped with AI. Building AI security solutions.</p>
+            </div>
+
+            <div class="hero-actions">
+                <button class="btn btn-dark" id="sayHi" type="button">
+                    <span class="sound-icon" aria-hidden="true">▶</span> <span id="sayHiLabel">Hear my intro 🔊</span>
+                </button>
+                <a class="btn btn-light" href="naveenraj-ravi-resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
+            </div>
+
+            <a href="#about" class="scroll-cue" aria-label="Scroll to about"><span></span></a>
+        </section>
+
+        <!-- About: ID card -->
+        <section id="about" class="section about">
+            <div class="about-text reveal">
+                <p class="eyebrow"><span class="num">01</span> About</p>
+                <h2 class="display">Hi, I'm <em>Naveenraj.</em></h2>
+                <p class="lead">I'm a Senior Security Engineer who's equipped with AI and uses it to build security
+                    solutions. Over 4+ years of securing enterprise SaaS products, I've gone from hunting
+                    vulnerabilities to engineering the controls, standards and autonomous agents that stop them
+                    from coming back. Today I architect security across the AI SDLC, from design to production,
+                    and build and review secure MCPs.</p>
+                <p class="lead muted">I'm a philomath: I stay ahead of where tech is going, not where it's been.
+                    I don't compete with anyone else, only with who I was yesterday.</p>
+                <div class="row-actions">
+                    <a class="btn btn-dark" href="naveenraj-ravi-resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
+                    <a class="btn btn-light" href="https://www.linkedin.com/in/naveenraj-ravi/" target="_blank"
+                        rel="noopener noreferrer">LinkedIn ↗</a>
+                    <a class="btn btn-light" href="mailto:itsnaveenraj@gmail.com">Email ↗</a>
+                </div>
+            </div>
+
+            <div class="lanyard reveal" id="lanyard">
+                <div class="swing" id="swing">
+                <div class="strap"></div>
+                <div class="clip"></div>
+                <button class="id-card" id="idCard" type="button" aria-label="Flip ID card">
+                    <div class="id-face id-front">
+                        <div class="id-head">
+                            <span class="id-logo">NR</span>
+                            <div><strong>SECURITY ENGINEER</strong><small>ID · 0x4E52</small></div>
+                        </div>
+                        <div class="id-photo"><img src="assets/avatar-3d.webp?v=2" alt=""><span>NR</span></div>
+                        <div class="id-name">NAVEENRAJ R</div>
+                        <div class="id-role">Senior Security Engineer</div>
+                        <div class="id-meta">
+                            <div><small>Focus</small>AppSec · AI</div>
+                            <div><small>Mode</small>Philomath</div>
+                            <div><small>Since</small>2022</div>
+                        </div>
+                        <div class="barcode"></div>
                     </div>
-                    <div class="console-input-line">
-                        <span class="prompt">> </span>
-                        <input type="text" id="console-input" autofocus spellcheck="false" autocomplete="off">
+                    <div class="id-face id-back">
+                        <strong class="id-back-title">Credentials</strong>
+                        <dl class="id-fields">
+                            <div><dt>Clearance</dt><dd>AppSec · AI Security · Cloud · GRC</dd></div>
+                            <div><dt>Building</dt><dd>Self-improving security agents</dd></div>
+                            <div><dt>Learning queue</dt><dd>AI red teaming · Kubernetes (CKA, CKS) · AWS Security · Supply chain · Wireless (OffSec)</dd></div>
+                            <div><dt>Base</dt><dd>Chennai, India</dd></div>
+                        </dl>
+                        <div class="id-qr-row">
+                            <div class="id-qr" id="idQr" aria-label="QR code to LinkedIn"></div>
+                            <div><small>Scan to connect</small><span class="sig">Naveenraj</span></div>
+                        </div>
+                    </div>
+                </button>
+                </div>
+                <p class="hint">drag it · tap to flip</p>
+            </div>
+        </section>
+
+        <!-- Skills: periodic table -->
+        <section id="skills" class="section">
+            <div class="section-head reveal">
+                <p class="eyebrow"><span class="num">02</span> Skills</p>
+                <h2 class="display">The periodic table <em>of my stack.</em></h2>
+                <p class="lead muted"><span class="hint-desktop">Hover an element to inspect it, click to pin it, and filter by family.</span><span class="hint-touch">Tap any element to inspect it, and filter by family.</span></p>
+            </div>
+            <div class="chips reveal" id="chips">
+                <button class="chip active" data-f="all">All</button>
+                <button class="chip" data-f="ai"><i class="c-ai"></i>AI Security</button>
+                <button class="chip" data-f="aieng"><i class="c-aieng"></i>AI Engineering</button>
+                <button class="chip" data-f="appsec"><i class="c-appsec"></i>Product Security</button>
+                <button class="chip" data-f="devsecops"><i class="c-devsecops"></i>DevSecOps</button>
+                <button class="chip" data-f="cloud"><i class="c-cloud"></i>Cloud &amp; Platform</button>
+                <button class="chip" data-f="grc"><i class="c-grc"></i>Governance · CISSP</button>
+            </div>
+            <div class="ptable-wrap reveal">
+                <div class="ptable" id="ptable"></div>
+                <aside class="pdetail" id="pdetail" aria-live="polite">
+                    <button class="pd-close" id="pdClose" type="button" aria-label="Close">✕</button>
+                    <div class="pd-atom">
+                        <div class="pd-orbit"><i></i></div>
+                        <div class="pd-orbit o2"><i></i></div>
+                        <div class="pd-sym" id="pdSym"><small id="pdNum">20</small><b id="pdSymTxt">Sg</b></div>
+                    </div>
+                    <img class="pd-logo" id="pdLogo" alt="" hidden>
+                    <div class="pd-name" id="pdName">Secrets Scanning</div>
+                    <div class="pd-fam" id="pdFam">DevSecOps</div>
+                    <p class="pd-desc" id="pdDesc">Hover or tap any element to inspect it.</p>
+                </aside>
+                <div class="pd-backdrop" id="pdBackdrop"></div>
+            </div>
+        </section>
+
+        <!-- Work: expanding cards -->
+        <section id="work" class="section">
+            <div class="section-head reveal">
+                <p class="eyebrow"><span class="num">03</span> Work</p>
+                <h2 class="display">Things I've <em>built.</em></h2>
+            </div>
+            <div class="accordion reveal" id="accordion">
+                <article class="acc open">
+                    <div class="acc-tab"><span>01</span><b>Autonomous security agents</b></div>
+                    <div class="acc-body">
+                        <p class="tags">AI AGENTS · KNOWLEDGE GRAPHS · SELF-IMPROVING</p>
+                        <h3>Autonomous security agents</h3>
+                        <dl class="case">
+                            <div><dt>Problem</dt><dd>Finding real security gaps needs deep context on how a product is built, and that context lives in a few people's heads.</dd></div>
+                            <div><dt>Built</dt><dd>Agents that scan codebases on their own and turn them into an architecture knowledge graph of services, data flows and trust boundaries. They reason over that graph to find exactly where a control is missing, and learn from every finding that gets reviewed.</dd></div>
+                            <div><dt>Outcome</dt><dd>Security reviews start from the real architecture instead of guesswork, and controls get built where they matter most.</dd></div>
+                        </dl>
+                        <div class="stack"><span>Claude</span><span>MCP</span><span>Python</span><span>Knowledge graphs</span></div>
+                        <div class="acc-visual flow" aria-hidden="true"><svg viewBox="0 0 320 240" class="graph-svg" role="img" aria-label="Agent mapping services into a knowledge graph and flagging a missing control"><g class="edges"><line x1="160" y1="120" x2="68" y2="40"/><line x1="160" y1="120" x2="250" y2="40"/><line x1="160" y1="120" x2="46" y2="200"/><line x1="160" y1="120" x2="160" y2="216"/><line x1="160" y1="120" x2="248" y2="168" class="e-gap"/><line x1="68" y1="40" x2="250" y2="40"/><line x1="46" y1="200" x2="160" y2="216"/></g><g class="node"><rect x="18" y="27.0" width="100" height="26" rx="13"/><text x="68" y="44">API gateway</text></g><g class="node"><rect x="196" y="27.0" width="108" height="26" rx="13"/><text x="250" y="44">Auth service</text></g><g class="node"><rect x="18" y="187.0" width="56" height="26" rx="13"/><text x="46" y="204">Queue</text></g><g class="node"><rect x="114" y="203.0" width="93" height="26" rx="13"/><text x="160" y="220">Data store</text></g><g class="node-gap"><rect x="183" y="155.0" width="130" height="26" rx="13"/><text x="248" y="172">Missing control</text></g><g class="node-core"><circle cx="160" cy="120" r="32"/><circle class="pulse" cx="160" cy="120" r="32"/><text x="160" y="118">Security</text><text x="160" y="132">agent</text></g></svg></div>
+                    </div>
+                </article>
+                <article class="acc">
+                    <div class="acc-tab"><span>02</span><b>Secure AI SDLC</b></div>
+                    <div class="acc-body">
+                        <p class="tags">AI SDLC · ARCHITECTURE · CONTROLS</p>
+                        <h3>Secure AI SDLC</h3>
+                        <dl class="case">
+                            <div><dt>Problem</dt><dd>AI features move from prototype to production faster than traditional security reviews can keep up.</dd></div>
+                            <div><dt>Built</dt><dd>A security architecture for the whole AI lifecycle: threat models at design, guardrails and evals during build, and runtime controls in production. It covers prompt injection, jailbreaks, insecure output handling and data leakage, including on AI agent platforms.</dd></div>
+                            <div><dt>Outcome</dt><dd>AI teams ship quickly, and every stage has a control that matches its risk.</dd></div>
+                        </dl>
+                        <div class="stack"><span>OWASP LLM Top 10</span><span>MITRE ATLAS</span><span>Guardrails</span><span>Evals</span></div>
+                        <div class="acc-visual flow" aria-hidden="true"><span class="node done">Design</span><i class="arrow"></i><span class="node done">Build</span><i class="arrow"></i><span class="node done">Evaluate</span><i class="arrow"></i><span class="node done">Deploy</span><i class="arrow"></i><span class="node live">Run</span></div>
+                    </div>
+                </article>
+                <article class="acc">
+                    <div class="acc-tab"><span>03</span><b>MCP security</b></div>
+                    <div class="acc-body">
+                        <p class="tags">MODEL CONTEXT PROTOCOL · AGENT TOOLS</p>
+                        <h3>MCP security</h3>
+                        <dl class="case">
+                            <div><dt>Problem</dt><dd>Agents become only as safe as the tools they can reach, and MCP servers hand them that reach.</dd></div>
+                            <div><dt>Built</dt><dd>Secure MCP servers built from scratch, plus a review method for existing ones: least-privilege tools, authentication on every call, tool-poisoning and prompt-injection paths through tool output, and supply-chain trust.</dd></div>
+                            <div><dt>Outcome</dt><dd>Agents connect to tools that have been reviewed and scoped before they ever touch real data.</dd></div>
+                        </dl>
+                        <div class="stack"><span>MCP</span><span>AuthN / AuthZ</span><span>Least privilege</span><span>Supply chain</span></div>
+                        <div class="acc-visual flow" aria-hidden="true"><span class="node plain">Agent</span><i class="arrow"></i><span class="node guard">MCP gateway</span><i class="arrow"></i><span class="node done">Scoped tools</span></div>
+                    </div>
+                </article>
+                <article class="acc">
+                    <div class="acc-tab"><span>04</span><b>Design-level controls</b></div>
+                    <div class="acc-body">
+                        <p class="tags">SSRF · IMDS · EGRESS · TOKENS</p>
+                        <h3>Design-level controls</h3>
+                        <dl class="case">
+                            <div><dt>Problem</dt><dd>Some bugs keep coming back however often they are patched, because the design allows them.</dd></div>
+                            <div><dt>Built</dt><dd>Controls built into the architecture: metadata-service (IMDS) protection and egress policy against SSRF, safeguards against service-token leakage, and security standards for third-party marketplace apps.</dd></div>
+                            <div><dt>Outcome</dt><dd>Whole classes of vulnerability closed at the design level, not one ticket at a time.</dd></div>
+                        </dl>
+                        <div class="stack"><span>AWS</span><span>Egress policy</span><span>Secure design</span><span>Threat modeling</span></div>
+                        <div class="acc-visual flow" aria-hidden="true"><span class="node plain">Request</span><i class="arrow"></i><span class="node guard">Egress policy</span><i class="arrow"></i><span class="node blocked">169.254.169.254</span></div>
+                    </div>
+                </article>
+                <article class="acc">
+                    <div class="acc-tab"><span>05</span><b>Root cause → standard</b></div>
+                    <div class="acc-body">
+                        <p class="tags">BUG BOUNTY · RCA · ENGINEERING STANDARDS</p>
+                        <h3>Root cause → standard</h3>
+                        <dl class="case">
+                            <div><dt>Problem</dt><dd>Fixing a reported bug once leaves its siblings alive elsewhere in the codebase.</dd></div>
+                            <div><dt>Built</dt><dd>For critical reports I trace the root cause across services and turn it into an engineering standard and a custom Semgrep rule. AI-assisted workflows speed up the triage that comes before.</dd></div>
+                            <div><dt>Outcome</dt><dd>The bug class is gone everywhere, and the rule stops it coming back.</dd></div>
+                        </dl>
+                        <div class="stack"><span>HackerOne</span><span>Semgrep</span><span>Snyk</span><span>LLM triage</span></div>
+                        <div class="acc-visual flow" aria-hidden="true"><span class="node plain">Report</span><i class="arrow"></i><span class="node done">Root cause</span><i class="arrow"></i><span class="node guard">Standard + rule</span><i class="arrow"></i><span class="node live">Class closed</span></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Experience: timeline -->
+        <section id="experience" class="section">
+            <div class="section-head reveal">
+                <p class="eyebrow"><span class="num">04</span> Experience</p>
+                <h2 class="display">Career <em>timeline.</em></h2>
+            </div>
+            <div class="timeline" id="timeline">
+                <div class="tl-line" aria-hidden="true"><span class="tl-fill" id="tlFill"></span></div>
+                <div class="tl-item">
+                    <div class="tl-year">2022<small>Joined Temenos</small></div>
+                    <div class="tl-card">
+                        <span class="badge">Product Security</span>
+                        <h3>Associate Engineer — Product Security</h3>
+                        <p class="tl-org">Temenos · Oct 2022 — Sep 2024</p>
+                        <p class="tl-head">Security for core-banking software used by banks worldwide: Temenos Transact (T24), IRIS APIs and the microservices around them.</p>
+                        <ul>
+                            <li>Pentested core-banking web, API and mobile surfaces, finding authentication bypasses, IDOR, access-control and business-logic flaws.</li>
+                            <li>Ran threat modeling and source code reviews for new features, working with architects so risks were fixed before release.</li>
+                            <li>Brought SAST and SCA into developer workflows and coached engineers on fixes, raising fix rates and cutting reopened issues.</li>
+                            <li>Hardened Azure endpoints and WAF rulesets, and produced PCI DSS evidence and pentest attestations for enterprise banks.</li>
+                            <li>Joined customer security calls to explain vulnerabilities, risk and remediation to banking clients.</li>
+                        </ul>
+                        <div class="pills"><span>T24 · Transact</span><span>IRIS APIs</span><span>Microservices</span><span>Azure</span><span>PCI DSS</span></div>
                     </div>
                 </div>
-                <p>
-                    > Security Specialist specializing in penetration testing and ethical hacking.<br>
-                    > Expert in Web, Mobile and API security.<br>
-                    > Passionate about cybersecurity innovation and defense.
-                </p>
+                <div class="tl-item">
+                    <div class="tl-year">2024<small>Joined Freshworks</small></div>
+                    <div class="tl-card">
+                        <span class="badge">Product Security</span>
+                        <h3>Security Engineer</h3>
+                        <p class="tl-org">Freshworks · Sep 2024 — Jul 2026</p>
+                        <p class="tl-head">Product security for Freshservice and the Freshworks platform, from design reviews to production.</p>
+                        <ul>
+                            <li>Led web, API and AI security assessments, including pre-launch reviews of new products and an AI agent platform.</li>
+                            <li>Designed SSRF defences (IMDS protection, egress policy), service-token leakage controls and marketplace app security standards.</li>
+                            <li>Ran HackerOne researcher reports end to end, turning critical root causes into engineering standards.</li>
+                            <li>Rolled out Snyk for SAST, SCA and secrets, and wrote custom Semgrep rules to catch issues earlier.</li>
+                            <li>Answered customers' security questions on the product, turning risk into clear answers.</li>
+                        </ul>
+                        <div class="pills"><span>Freshservice</span><span>Platform</span><span>AWS</span><span>Snyk</span><span>Semgrep</span><span>HackerOne</span></div>
+                    </div>
+                </div>
+                <div class="tl-mile"><span><b>2025</b>CDP · GWEB · CAISP</span></div>
+                <!-- CISSP hidden for now; restore this line to show it again:
+                <div class="tl-mile"><span><b>2026</b>CISSP · 3× Claude Certified (Anthropic)</span></div>
+                -->
+                <div class="tl-mile"><span><b>2026</b>3× Claude Certified (Anthropic)</span></div>
+                <div class="tl-item">
+                    <div class="tl-year">Jul 2026<small>Promoted</small></div>
+                    <div class="tl-card">
+                        <span class="badge">Promotion</span>
+                        <h3>Senior Security Engineer</h3>
+                        <p class="tl-org">Freshworks · Jul 2026 — Present</p>
+                        <p class="tl-head">Leading AI security and secure-by-design work across Freshservice and the platform.</p>
+                        <ul>
+                            <li>Architecting security across the AI SDLC, with controls from design to production for AI features and agents.</li>
+                            <li>Building and reviewing secure MCP servers, so agents only reach tools that have been scoped and checked.</li>
+                            <li>Building self-improving security agents that map product architecture and point to missing controls.</li>
+                            <li>Setting design-level standards that remove whole classes of vulnerability across products.</li>
+                        </ul>
+                        <div class="pills"><span>AI SDLC</span><span>MCP</span><span>Security agents</span><span>Claude</span><span>Secure design</span></div>
+                    </div>
+                </div>
             </div>
-            <!-- <div class="profile-container">
-                <img src="IMG_2338-removebg-preview.png" alt="Naveenraj R" class="profile-img active">
-                <img src="anonymous-removebg-preview.png" alt="Alternative Profile" class="profile-img">
-            </div> -->
-        </div>
-    </section>
+        </section>
 
-    <section class="section">
-        <h2 style="color: var(--primary); margin-bottom: 2rem;">> TECHNICAL_SKILLS</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3 style="color: var(--text-secondary)">[SECURITY_PRACTICES]</h3>
-                <ul class="hacker-list">
-                    <li>DAST/SAST/OSL</li>
-                    <li>API Security</li>
-                    <li>Web App PenTesting</li>
-                    <li>DevSecOps Pipeline</li>
-                    <li>Azure WAF Configuration</li>
-                </ul>
+        <!-- Certifications -->
+        <section id="certifications" class="section certs">
+            <div class="certs-left reveal">
+                <p class="eyebrow"><span class="num">05</span> Certifications</p>
+                <h2 class="display">Always <em>learning.</em></h2>
+                <p class="lead muted"><!-- with CISSP: 7 certifications across security leadership, AI, application security and DevSecOps. -->6 certifications across AI, application security and DevSecOps.</p>
+                <div class="cert-preview" id="certPreview"><img class="pv" src="assets/badges/claude-architect-professional.png" alt="" id="certPreviewImg"></div>
             </div>
-            
-            <div class="skill-category">
-                <h3 style="color: var(--text-secondary)">[TOOLS_ARSENAL]</h3>
-                <ul class="hacker-list">
-                    <li>Python/Java</li>
-                    <li>BurpSuite/Nmap</li>
-                    <li>Metasploit/Nikto</li>
-                    <li>Fortify/Coverity</li>
-                    <li>Mend Whitesource</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+            <ol class="cert-list reveal" id="certList">
+                <!-- CISSP hidden for now; uncomment to show it again:
+                <li><a data-img="https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/isc2.svg" data-badge="cissp"><span class="ci ci-badge cissp"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/isc2.svg" alt="ISC2"></span><span class="cn">CISSP — Certified Information Systems Security Professional<small>ISC2</small></span><span class="cd">2026</span></a></li>
+                -->
+                <li><a href="https://www.credly.com/earner/earned/badge/baa4d650-ba38-4b75-bb66-aac7960d2983" target="_blank" rel="noopener noreferrer" data-img="assets/badges/claude-architect-professional.png"><span class="ci"><img src="assets/badges/claude-architect-professional.png" alt=""></span><span class="cn">Claude Certified Architect – Professional<small>Anthropic</small></span><span class="cd">Aug 2026</span></a></li>
+                <li><a href="https://www.credly.com/earner/earned/badge/e1c2e82d-5e27-4f77-8005-2a9110a499be" target="_blank" rel="noopener noreferrer" data-img="assets/badges/claude-architect-foundations.png"><span class="ci"><img src="assets/badges/claude-architect-foundations.png" alt=""></span><span class="cn">Claude Certified Architect – Foundations<small>Anthropic</small></span><span class="cd">Aug 2026</span></a></li>
+                <li><a href="https://www.credly.com/earner/earned/badge/b3429071-14cf-4ee7-8b49-cc601c1eb5b6" target="_blank" rel="noopener noreferrer" data-img="assets/badges/claude-dev-foundations.png"><span class="ci"><img src="assets/badges/claude-dev-foundations.png" alt=""></span><span class="cn">Claude Certified Developer – Foundations<small>Anthropic</small></span><span class="cd">Aug 2026</span></a></li>
+                <li><a href="https://www.credly.com/badges/5d00b787-7ea6-40c8-8bb9-ff5804edd675/public_url" target="_blank" rel="noopener noreferrer" data-img="assets/badges/caisp.png"><span class="ci"><img src="assets/badges/caisp.png" alt=""></span><span class="cn">Certified AI Security Professional<small>Practical DevSecOps</small></span><span class="cd">Aug 2025</span></a></li>
+                <li><a href="https://www.credly.com/badges/cc48a8bc-3d72-4665-a9ac-b40a5c82ea81/public_url" target="_blank" rel="noopener noreferrer" data-img="assets/badges/gweb.png"><span class="ci"><img src="assets/badges/gweb.png" alt=""></span><span class="cn">GIAC Certified Web Application Defender<small>GIAC</small></span><span class="cd">Jul 2025</span></a></li>
+                <li><a href="https://www.credly.com/badges/da5b007d-2425-4e26-97d8-ea8e9f732f93" target="_blank" rel="noopener noreferrer" data-img="assets/badges/cdp.png"><span class="ci"><img src="assets/badges/cdp.png" alt=""></span><span class="cn">Certified DevSecOps Professional<small>Practical DevSecOps</small></span><span class="cd">Jan 2025</span></a></li>
+            </ol>
+        </section>
 
-    <section class="section">
-        <h2 style="color: var(--primary); margin-bottom: 2rem;">> WORK_EXPERIENCE</h2>
-        <div class="timeline">
-            <div class="project-card">
-                <h3 style="color: var(--text-secondary)">[FRESHWORKS]</h3>
-                <h4>> Security Engineer (Sep 2024 - Present)</h4>
-                <p class="location">> Chennai, Tamil Nadu, India</p>
-                <ul class="hacker-list">
-                    <li>Spearheading source code security reviews and manual penetration testing initiatives to identify and remediate critical vulnerabilities</li>
-                    <li>Leading bug bounty program triage operations, effectively managing and validating security findings from external researchers</li>
-                    <li>Providing expert security consultation to clients, addressing complex application security concerns and implementing robust solutions</li>
-                    <li>Implementing shift-left security principles to integrate security practices early in the development lifecycle</li>
-                    <li>Fostering a strong security culture through mentorship and knowledge sharing within teams</li>
-                </ul>
+        <!-- Contact -->
+        <section id="contact" class="section contact reveal">
+            <p class="eyebrow"><span class="num">07</span> Contact</p>
+            <h2 class="display big">Let's build something <em>secure.</em></h2>
+            <p class="lead muted">Open to security engineering roles, consulting, and collaborative projects at the
+                intersection of security and innovation.</p>
+            <div class="row-actions center">
+                <a class="btn btn-dark" href="mailto:itsnaveenraj@gmail.com">itsnaveenraj@gmail.com ↗</a>
+                <a class="btn btn-light" href="https://www.linkedin.com/in/naveenraj-ravi/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
             </div>
+        </section>
+    </main>
 
+    <footer class="footer">© 2026 Naveenraj R · Built with care, secured by design.<br><span class="egg-hint">Psst… try to prompt-inject my avatar.</span></footer>
 
-            <div class="project-card">
-                <h3 style="color: var(--text-secondary)">[TEMENOS]</h3>
-                <h4>> Associate Engineer - Product Security (Oct 2022 - Sep 2024)</h4>
-                <p class="location">> Chennai, Tamil Nadu, India</p>
-                <ul class="hacker-list">
-                    <li>Led Product's security testing lifecycle</li>
-                    <li>Automated exploit discovery using Python/NVD APIs & EOL component detection</li>
-                    <li> Enhanced cloud endpoint security in Azure</li>
-                    <li> Cloud VM patch management strategist</li>
-                    <li> Azure WAF configuration & validation expert</li>
-                    <li> Conducted manual pentests across web/mobile/thick clients</li>
-                    <li> Integrated security in SDLC pipeline</li>
-                </ul>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="section">
-        <h2 style="color: var(--primary); margin-bottom: 2rem;">> CERTIFICATIONS</h2>
-        <div class="cert-grid">
-            <div class="project-card">
-                <i class="fas fa-shield-alt" style="color: var(--primary); margin-right: 1rem;"></i>
-                <a href="https://www.credly.com/badges/da5b007d-2425-4e26-97d8-ea8e9f732f93" target="_blank" class="cert-title">> Certified DevSecOps Professional (CDP)</a>
-                <p class="cert-details">> Issued: Jan 2025</p>
-            </div>
-            <div class="project-card">
-                <i class="fas fa-lock" style="color: var(--primary); margin-right: 1rem;"></i>
-                <a href="https://drive.google.com/file/d/1mMWkp4IJ5_HVtYR2TxY9V2p7386MqZMw/view?usp=drivesdk" target="_blank" class="cert-title">> Certified Appsec Practitioner</a>
-                <p class="cert-details">> Issued: Feb 2023</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2 style="color: var(--primary); margin-bottom: 2rem;">> CONTACT_DETAILS</h2>
-        <div class="contact-grid">
-            <div class="project-card">
-                <i class="fas fa-envelope" style="color: var(--primary); margin-right: 1rem;"></i>
-                <a href="mailto:naveenraj2001ravi@gmail.com" style="color: var(--text-primary); text-decoration: none;">naveenraj2001ravi@gmail.com</a>
-            </div>
-            <div class="project-card">
-                <i class="fas fa-map-marker-alt" style="color: var(--primary); margin-right: 1rem;"></i>
-                <span>Chennai, Tamil Nadu, India.</span>
-            </div>
-            <div class="project-card">
-                <i class="fab fa-linkedin" style="color: var(--primary); margin-right: 1rem;"></i>
-                <a href="https://www.linkedin.com/in/naveenraj-r-658658150/" target="_blank" style="color: var(--text-primary); text-decoration: none;">LinkedIn Profile</a>
-            </div>
-        </div>
-    </section>
-
-    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="script.js?v=42"></script>
 </body>
+
 </html>
